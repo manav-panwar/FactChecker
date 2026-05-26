@@ -110,17 +110,3 @@ if uploaded_file is not None:
 
     # ── Done ──────────────────────────────────────────────────────────────────
     progress_bar.progress(1.0, text="All claims verified.")
-
-    st.divider()
-    st.markdown("### Token Usage for this PDF")
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Input Tokens", f"{total_input_tokens:,}")
-    col2.metric("Output Tokens", f"{total_output_tokens:,}")
-    col3.metric("Total Tokens", f"{total_input_tokens + total_output_tokens:,}")
-
-    st.download_button(
-        label="Download Results as JSON",
-        data=json.dumps(all_results, indent=2),
-        file_name="fact_check_results.json",
-        mime="application/json",
-    )
